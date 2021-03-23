@@ -5,8 +5,7 @@ export default function ClientSingle() {
 
 	return (
 		<div>
-			<h1>Client Single</h1>
-			<p>Client: {router.query.clientID}</p>
+			<h1>{router.query.clientID}</h1>
 		</div>
 	)
 }
