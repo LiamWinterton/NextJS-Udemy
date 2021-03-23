@@ -6,13 +6,17 @@ export default function client() {
 		{ id: "facebook", url: "/clients/facebook", name: "Facebook" },
 	]
 
+	function displayLinks() {
+		return clients.map(client => {
+			return <li key={client.id}><Link href={client.url}>{client.name}</Link></li>
+		})
+	}
+
 	return (
 		<div>
 			<h1>Clients</h1>
 			<ul>
-				{clients.map(client => {
-					return <li key={client.id}><Link href={client.url}>{client.name}</Link></li>
-				})}
+				{displayLinks()}
 			</ul>
 		</div>
 	)
