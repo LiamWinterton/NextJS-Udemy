@@ -8,7 +8,18 @@ export default function client() {
 
 	function displayLinks() {
 		return clients.map(client => {
-			return <li key={client.id}><Link href={client.url}>{client.name}</Link></li>
+			return (
+				<li key={client.id}>
+					<Link
+						href={
+							{
+								pathname: '/clients/[clientID]',
+								query: { clientID: client.id }
+							}
+						}>{client.name}
+					</Link>
+				</li>
+			)
 		})
 	}
 
