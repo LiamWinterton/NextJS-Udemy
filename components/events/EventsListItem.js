@@ -1,4 +1,7 @@
-import Link from 'next/link'
+import Button from '../ui/Button'
+import DateIcon from '../icons/date-icon'
+import AddressIcon from '../icons/address-icon'
+import ArrowRightIcon from '../icons/arrow-right-icon'
 
 import styles from './EventsListItem.module.css'
 
@@ -17,15 +20,20 @@ function EventsListItem(props) {
 				<div className={styles.summary}>
 					<h2>{event.title}</h2>
 					<div className={styles.date}>
+						<DateIcon />
 						<time>{readableDate}</time>
 					</div>
 					<div className={styles.address}>
+						<AddressIcon />
 						<address>{readableAddress}</address>
 					</div>
 				</div>
 			</div>
 			<div className={styles.actions}>
-				<Link href={`/events/${event.id}`}>Explore event</Link>
+				<Button href={`/events/${event.id}`}>
+					<span>Explore event</span>
+					<span className={styles.icon}><ArrowRightIcon /></span>
+				</Button>
 			</div>
 		</li>
 	)
