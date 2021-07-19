@@ -5,8 +5,6 @@ import EventsList from '../components/events/EventsList'
 function Homepage() {
 	const featuredEvents = getFeaturedEvents()
 
-	console.log(featuredEvents)
-
 	return (
 		<div>
 			<h1>Homepage!</h1>

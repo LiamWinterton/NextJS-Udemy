@@ -1,5 +1,9 @@
 import Link from 'next/link'
 
+import styles from './EventsListItem.module.css'
+
+console.log(styles)
+
 function EventsListItem(props) {
 	const { event } = props
 
@@ -7,21 +11,23 @@ function EventsListItem(props) {
 	const readableAddress = event.location.replace(', ', '\n')
 	
 	return (
-		<div>
+		<li className={styles.item}>
 			<img src={event.image} alt="" />
-			<div>
-				<div><h2>{event.title}</h2></div>
-				<div>
-					<time>{readableDate}</time>
-				</div>
-				<div>
-					<address>{readableAddress}</address>
+			<div className={styles.content}>
+				<div className={styles.summary}>
+					<h2>{event.title}</h2>
+					<div className={styles.date}>
+						<time>{readableDate}</time>
+					</div>
+					<div className={styles.address}>
+						<address>{readableAddress}</address>
+					</div>
 				</div>
 			</div>
-			<div>
+			<div className={styles.actions}>
 				<Link href={`/events/${event.id}`}>Explore event</Link>
 			</div>
-		</div>
+		</li>
 	)
 }
 
