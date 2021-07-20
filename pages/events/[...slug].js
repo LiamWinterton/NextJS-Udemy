@@ -1,8 +1,11 @@
+import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 
 import { getFilteredEvents } from '../../dummy-data'
 
 import EventsList from '../../components/events/EventsList'
+import ResultsTitle from '../../components/results-title/results-title'
+import Button from '../../components/ui/Button'
 
 function EventsArchiveFiltered() {
 	const router = useRouter()
@@ -26,14 +29,22 @@ function EventsArchiveFiltered() {
 	const filteredEvents = getFilteredEvents({ year: numYear, month: numMonth })
 
 	if(!filteredEvents || filteredEvents.length === 0) {
-		return <p>No Events Found!</p>
+		return (
+			<Fragment>
+				<p>No Events Found!</p>
+				<div className="center"><Button href="/events">Show all Events</Button></div>
+			</Fragment>
+		)
 	}
 
+	const date = new Date(numYear, numMonth - 1)
+
 	return (
-		<div>
+		<Fragment>
 			<h1>Filtered Events:</h1>
+			<ResultsTitle date={date} />
 			<EventsList events={filteredEvents} />
-		</div>
+		</Fragment>
 	)
 }
 
