@@ -13,7 +13,7 @@ function EventsListItem(props) {
 	
 	return (
 		<li className={styles.item}>
-			<img src={event.image} alt="" />
+			<img src={"/" + event.image} alt="" />
 			<div className={styles.content}>
 				<div className={styles.summary}>
 					<h2>{event.title}</h2>
