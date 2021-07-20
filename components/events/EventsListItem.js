@@ -5,8 +5,6 @@ import ArrowRightIcon from '../icons/arrow-right-icon'
 
 import styles from './EventsListItem.module.css'
 
-console.log(styles)
-
 function EventsListItem(props) {
 	const { event } = props
 
